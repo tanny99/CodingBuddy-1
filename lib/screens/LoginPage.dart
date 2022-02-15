@@ -180,7 +180,7 @@ class _LoginPageState extends State<LoginPage> {
                                               .withOpacity(0.7)),
                                     ),
                                     child: Text(
-                                      'SIGN IN',
+                                      'LOGIN',
                                       style: AppTextStyle.style(
                                           fontSize: 18,
                                           fontWeight: FontWeight.w600),
