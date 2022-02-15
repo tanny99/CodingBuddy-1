@@ -27,17 +27,18 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
+  flutter_native_splash: ^2.0.3+1
   cupertino_icons: ^1.0.2
   firebase_auth: ^3.2.0
   firebase_storage: ^10.1.0
   firebase_core: ^1.10.0
   cloud_firestore: ^3.1.0
-  transparent_image: ^1.0.0
+  transparent_image: ^2.0.0
   image_picker: ^0.8.4+4
   http: ^0.13.3
-  new_gradient_app_bar: ^0.1.4
+  new_gradient_app_bar: ^0.2.0
   intro_slider: ^3.0.2
-  webview_flutter: ^2.3.1
+  webview_flutter: ^3.0.0
   email_validator: ^2.0.1
 
 #  animated_text_kit:
@@ -62,6 +63,13 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+flutter_native_splash:
+  background_image: "Assets/01_splash .png"
+  android: true
+  ios: true
+  android_gravity: center
+  ios_content_mode: scaleAspectFill
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -78,6 +86,13 @@ flutter:
     - Assets/jiit_logo-removebg-preview.png
     - Assets/new.jpg
 #    - Assets/Ujjwal.jpg
+  fonts:
+    - family: SourceSansPro
+      fonts:
+        - asset: Assets/fonts/SourceSansPro-Regular.ttf
+          weight: 400
+        - asset: Assets/fonts/SourceSansPro-SemiBold.ttf
+          weight: 600
 
   # To add assets to your application, add an assets section, like this:
   # assets:
