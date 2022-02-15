@@ -65,198 +65,202 @@ class _CreateAccountState extends State<CreateAccount> {
               ],
             ),
             Expanded(
-              child: Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(38),
-                    topLeft: Radius.circular(38),
+              child: SingleChildScrollView(
+                child: Container(
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(38),
+                      topLeft: Radius.circular(38),
+                    ),
                   ),
-                ),
-                child: Column(
-                  children: [
-                    SizedBox(height: 20),
-                    TextField(
-                      style: AppTextStyle.style(
-                        color: Colors.black.withOpacity(0.8),
-                      ),
-                      decoration: InputDecoration(
-                        hintText: 'Hipporasy@gmail.com',
-                        labelText: 'Email',
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.black.withOpacity(0.8)),
-                        ),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.black.withOpacity(0.8)),
-                        ),
-                        border: UnderlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.black.withOpacity(0.8)),
-                        ),
-                        labelStyle: AppTextStyle.style(
+                  child: Column(
+                    children: [
+                      SizedBox(height: 20),
+                      TextField(
+                        style: AppTextStyle.style(
                           color: Colors.black.withOpacity(0.8),
                         ),
-                      ),
-                      controller: EnrollmentController,
-                    ),
-                    SizedBox(height: 20),
-                    TextField(
-                      obscureText: _isSecure,
-                      style: AppTextStyle.style(
-                        color: Colors.black.withOpacity(0.8),
-                      ),
-                      decoration: InputDecoration(
-                        suffixIcon: Padding(
-                          padding: EdgeInsets.all(15),
-                          child: GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                _isSecure = !_isSecure;
-                              });
-                            },
-                            child: Icon(
-                              Icons.remove_red_eye,
-                              color: _isSecure
-                                  ? Colors.black.withOpacity(0.8)
-                                  : Colors.black.withOpacity(0.4),
-                            ),
+                        decoration: InputDecoration(
+                          hintText: 'Hipporasy@gmail.com',
+                          labelText: 'Email',
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors.black.withOpacity(0.8)),
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors.black.withOpacity(0.8)),
+                          ),
+                          border: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors.black.withOpacity(0.8)),
+                          ),
+                          labelStyle: AppTextStyle.style(
+                            color: Colors.black.withOpacity(0.8),
                           ),
                         ),
-                        labelText: 'Password',
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.black.withOpacity(0.8)),
-                        ),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.black.withOpacity(0.8)),
-                        ),
-                        border: UnderlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.black.withOpacity(0.8)),
-                        ),
-                        labelStyle: AppTextStyle.style(
+                        controller: EnrollmentController,
+                      ),
+                      SizedBox(height: 20),
+                      TextField(
+                        obscureText: _isSecure,
+                        style: AppTextStyle.style(
                           color: Colors.black.withOpacity(0.8),
                         ),
+                        decoration: InputDecoration(
+                          suffixIcon: Padding(
+                            padding: EdgeInsets.all(15),
+                            child: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  _isSecure = !_isSecure;
+                                });
+                              },
+                              child: Icon(
+                                Icons.remove_red_eye,
+                                color: _isSecure
+                                    ? Colors.black.withOpacity(0.8)
+                                    : Colors.black.withOpacity(0.4),
+                              ),
+                            ),
+                          ),
+                          labelText: 'Password',
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors.black.withOpacity(0.8)),
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors.black.withOpacity(0.8)),
+                          ),
+                          border: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors.black.withOpacity(0.8)),
+                          ),
+                          labelStyle: AppTextStyle.style(
+                            color: Colors.black.withOpacity(0.8),
+                          ),
+                        ),
+                        controller: PasswordController,
                       ),
-                      controller: PasswordController,
-                    ),
-                    SizedBox(height: 32),
-                    Container(
-                      height: 56,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [
-                            AppColor.primary,
-                            AppColor.primary.withOpacity(0.7)
+                      SizedBox(height: 32),
+                      Container(
+                        height: 56,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          gradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [
+                              AppColor.primary,
+                              AppColor.primary.withOpacity(0.7)
+                            ],
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12,
+                              offset: Offset(5, 5),
+                              blurRadius: 10,
+                            )
                           ],
                         ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            offset: Offset(5, 5),
-                            blurRadius: 10,
-                          )
-                        ],
-                      ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Center(
-                              child: Padding(
-                                padding: const EdgeInsets.all(4),
-                                child: SizedBox(
-                                  width: double.infinity,
-                                  child: ElevatedButton(
-                                    style: ButtonStyle(
-                                      backgroundColor:
-                                          MaterialStateProperty.all(AppColor
-                                              .primary
-                                              .withOpacity(0.7)),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: Center(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(4),
+                                  child: SizedBox(
+                                    width: double.infinity,
+                                    child: ElevatedButton(
+                                      style: ButtonStyle(
+                                        backgroundColor:
+                                            MaterialStateProperty.all(AppColor
+                                                .primary
+                                                .withOpacity(0.7)),
+                                      ),
+                                      child: Text(
+                                        'SIGN UP',
+                                        style: AppTextStyle.style(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w600),
+                                      ),
+                                      onPressed: () {
+                                        _isValid = EmailValidator.validate(
+                                            EmailController.text);
+                                        if (!(_isValid)) {
+                                          Fluttertoast.showToast(
+                                              msg: 'Enter a Valid Email',
+                                              toastLength: Toast.LENGTH_SHORT,
+                                              gravity: ToastGravity.TOP,
+                                              timeInSecForIosWeb: 1,
+                                              fontSize: 16.0);
+                                        } else if (!EmailController.text
+                                            .contains('@mail.jiit.ac.in')) {
+                                          Fluttertoast.showToast(
+                                              msg: 'Enter a Valid Email',
+                                              toastLength: Toast.LENGTH_SHORT,
+                                              gravity: ToastGravity.TOP,
+                                              timeInSecForIosWeb: 1,
+                                              fontSize: 16.0);
+                                        } else if (EmailController
+                                                .text.isNotEmpty &&
+                                            EnrollmentController
+                                                .text.isNotEmpty &&
+                                            PasswordController
+                                                .text.isNotEmpty) {
+                                          setState(() {
+                                            isLoading = true;
+                                          });
+                                          createAccount(
+                                                  EmailController.text,
+                                                  EnrollmentController.text,
+                                                  PasswordController.text)
+                                              .then((user) {
+                                            if (user != null) {
+                                              setState(() {
+                                                isLoading = false;
+                                              });
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (_) =>
+                                                          LoginPage()));
+                                              print(
+                                                  "Account Created Successful");
+                                            } else {
+                                              print("Account Creation Failed");
+                                            }
+                                          });
+                                        } else {
+                                          print("Please enter fields.");
+                                        }
+                                      },
                                     ),
-                                    child: Text(
-                                      'SIGN UP',
-                                      style: AppTextStyle.style(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                    onPressed: () {
-                                      _isValid = EmailValidator.validate(
-                                          EmailController.text);
-                                      if (!(_isValid)) {
-                                        Fluttertoast.showToast(
-                                            msg: 'Enter a Valid Email',
-                                            toastLength: Toast.LENGTH_SHORT,
-                                            gravity: ToastGravity.TOP,
-                                            timeInSecForIosWeb: 1,
-                                            fontSize: 16.0);
-                                      } else if (!EmailController.text
-                                          .contains('@mail.jiit.ac.in')) {
-                                        Fluttertoast.showToast(
-                                            msg: 'Enter a Valid Email',
-                                            toastLength: Toast.LENGTH_SHORT,
-                                            gravity: ToastGravity.TOP,
-                                            timeInSecForIosWeb: 1,
-                                            fontSize: 16.0);
-                                      } else if (EmailController
-                                              .text.isNotEmpty &&
-                                          EnrollmentController
-                                              .text.isNotEmpty &&
-                                          PasswordController.text.isNotEmpty) {
-                                        setState(() {
-                                          isLoading = true;
-                                        });
-                                        createAccount(
-                                                EmailController.text,
-                                                EnrollmentController.text,
-                                                PasswordController.text)
-                                            .then((user) {
-                                          if (user != null) {
-                                            setState(() {
-                                              isLoading = false;
-                                            });
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (_) =>
-                                                        LoginPage()));
-                                            print("Account Created Successful");
-                                          } else {
-                                            print("Account Creation Failed");
-                                          }
-                                        });
-                                      } else {
-                                        print("Please enter fields.");
-                                      }
-                                    },
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                          // Padding(
-                          //   padding: const EdgeInsets.only(right: 20),
-                          //   child: Icon(Icons.arrow_forward,
-                          //       color: Colors.white, size: 32),
-                          // )
-                        ],
+                            // Padding(
+                            //   padding: const EdgeInsets.only(right: 20),
+                            //   child: Icon(Icons.arrow_forward,
+                            //       color: Colors.white, size: 32),
+                            // )
+                          ],
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    SizedBox(
-                      height: Responsive.height(9.7, context),
-                    ),
-                  ],
+                      SizedBox(
+                        height: 8,
+                      ),
+                      SizedBox(
+                        height: Responsive.height(9.7, context),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             )

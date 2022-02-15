@@ -62,204 +62,208 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
             Expanded(
-              child: Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(38),
-                    topLeft: Radius.circular(38),
+              child: SingleChildScrollView(
+                child: Container(
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(38),
+                      topLeft: Radius.circular(38),
+                    ),
                   ),
-                ),
-                child: Column(
-                  children: [
-                    SizedBox(height: 20),
-                    TextField(
-                      style: AppTextStyle.style(
-                        color: Colors.black.withOpacity(0.8),
-                      ),
-                      decoration: InputDecoration(
-                        hintText: 'Hipporasy@gmail.com',
-                        labelText: 'Email',
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.black.withOpacity(0.8)),
-                        ),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.black.withOpacity(0.8)),
-                        ),
-                        border: UnderlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.black.withOpacity(0.8)),
-                        ),
-                        labelStyle: AppTextStyle.style(
+                  child: Column(
+                    children: [
+                      SizedBox(height: 15),
+                      TextField(
+                        style: AppTextStyle.style(
                           color: Colors.black.withOpacity(0.8),
                         ),
-                      ),
-                      controller: EnrollmentController,
-                    ),
-                    SizedBox(height: 20),
-                    TextField(
-                      obscureText: _isSecure,
-                      style: AppTextStyle.style(
-                        color: Colors.black.withOpacity(0.8),
-                      ),
-                      decoration: InputDecoration(
-                        suffixIcon: Padding(
-                          padding: EdgeInsets.all(15),
-                          child: GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                _isSecure = !_isSecure;
-                              });
-                            },
-                            child: Icon(
-                              Icons.remove_red_eye,
-                              color: _isSecure
-                                  ? Colors.black.withOpacity(0.8)
-                                  : Colors.black.withOpacity(0.4),
-                            ),
+                        decoration: InputDecoration(
+                          hintText: 'Hipporasy@gmail.com',
+                          labelText: 'Email',
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors.black.withOpacity(0.8)),
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors.black.withOpacity(0.8)),
+                          ),
+                          border: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors.black.withOpacity(0.8)),
+                          ),
+                          labelStyle: AppTextStyle.style(
+                            color: Colors.black.withOpacity(0.8),
                           ),
                         ),
-                        labelText: 'Password',
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.black.withOpacity(0.8)),
-                        ),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.black.withOpacity(0.8)),
-                        ),
-                        border: UnderlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.black.withOpacity(0.8)),
-                        ),
-                        labelStyle: AppTextStyle.style(
+                        controller: EnrollmentController,
+                      ),
+                      SizedBox(height: 15),
+                      TextField(
+                        obscureText: _isSecure,
+                        style: AppTextStyle.style(
                           color: Colors.black.withOpacity(0.8),
                         ),
+                        decoration: InputDecoration(
+                          suffixIcon: Padding(
+                            padding: EdgeInsets.all(15),
+                            child: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  _isSecure = !_isSecure;
+                                });
+                              },
+                              child: Icon(
+                                Icons.remove_red_eye,
+                                color: _isSecure
+                                    ? Colors.black.withOpacity(0.8)
+                                    : Colors.black.withOpacity(0.4),
+                              ),
+                            ),
+                          ),
+                          labelText: 'Password',
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors.black.withOpacity(0.8)),
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors.black.withOpacity(0.8)),
+                          ),
+                          border: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors.black.withOpacity(0.8)),
+                          ),
+                          labelStyle: AppTextStyle.style(
+                            color: Colors.black.withOpacity(0.8),
+                          ),
+                        ),
+                        controller: PasswordController,
                       ),
-                      controller: PasswordController,
-                    ),
-                    SizedBox(height: 32),
-                    Container(
-                      height: 56,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [
-                            AppColor.primary,
-                            AppColor.primary.withOpacity(0.7)
+                      SizedBox(height: 32),
+                      Container(
+                        height: 56,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          gradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [
+                              AppColor.primary,
+                              AppColor.primary.withOpacity(0.7)
+                            ],
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12,
+                              offset: Offset(5, 5),
+                              blurRadius: 10,
+                            )
                           ],
                         ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            offset: Offset(5, 5),
-                            blurRadius: 10,
-                          )
-                        ],
-                      ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Center(
-                              child: Padding(
-                                padding: const EdgeInsets.all(4),
-                                child: SizedBox(
-                                  width: double.infinity,
-                                  child: ElevatedButton(
-                                    style: ButtonStyle(
-                                      backgroundColor:
-                                          MaterialStateProperty.all(AppColor
-                                              .primary
-                                              .withOpacity(0.7)),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: Center(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(4),
+                                  child: SizedBox(
+                                    width: double.infinity,
+                                    child: ElevatedButton(
+                                      style: ButtonStyle(
+                                        backgroundColor:
+                                            MaterialStateProperty.all(AppColor
+                                                .primary
+                                                .withOpacity(0.7)),
+                                      ),
+                                      child: Text(
+                                        'LOGIN',
+                                        style: AppTextStyle.style(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w600),
+                                      ),
+                                      onPressed: () async {
+                                        if (EnrollmentController
+                                                .text.isNotEmpty &&
+                                            PasswordController
+                                                .text.isNotEmpty) {
+                                          setState(() {
+                                            isLoading = true;
+                                          });
+                                          LogIn(EnrollmentController.text,
+                                                  PasswordController.text)
+                                              .then((user) {
+                                            if (user != null) {
+                                              print("Login Successful");
+                                              setState(() {
+                                                isLoading = false;
+                                              });
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (_) => HomePage(
+                                                            indexx: 0,
+                                                          )));
+                                            } else {
+                                              print("Login failed");
+                                              setState(() {
+                                                isLoading = false;
+                                              });
+                                            }
+                                          });
+                                        } else {
+                                          print(
+                                              "Please fill the form correctly");
+                                        }
+                                      },
                                     ),
-                                    child: Text(
-                                      'LOGIN',
-                                      style: AppTextStyle.style(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                    onPressed: () async {
-                                      if (EnrollmentController
-                                              .text.isNotEmpty &&
-                                          PasswordController.text.isNotEmpty) {
-                                        setState(() {
-                                          isLoading = true;
-                                        });
-                                        LogIn(EnrollmentController.text,
-                                                PasswordController.text)
-                                            .then((user) {
-                                          if (user != null) {
-                                            print("Login Successful");
-                                            setState(() {
-                                              isLoading = false;
-                                            });
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (_) => HomePage(
-                                                          indexx: 0,
-                                                        )));
-                                          } else {
-                                            print("Login failed");
-                                            setState(() {
-                                              isLoading = false;
-                                            });
-                                          }
-                                        });
-                                      } else {
-                                        print("Please fill the form correctly");
-                                      }
-                                    },
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                          // Padding(
-                          //   padding: const EdgeInsets.only(right: 20),
-                          //   child: Icon(Icons.arrow_forward,
-                          //       color: Colors.white, size: 32),
-                          // )
-                        ],
+                            // Padding(
+                            //   padding: const EdgeInsets.only(right: 20),
+                            //   child: Icon(Icons.arrow_forward,
+                            //       color: Colors.white, size: 32),
+                            // )
+                          ],
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (_) => CreateAccount()));
-                          },
-                          child: Padding(
-                            padding:
-                                const EdgeInsets.only(top: 15.0, right: 50),
-                            child: Text(
-                              'Not registered?',
-                              style: AppTextStyle.style(
-                                color: Colors.black.withOpacity(0.8),
+                      SizedBox(
+                        height: 8,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => CreateAccount()));
+                            },
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 15.0, right: 50),
+                              child: Text(
+                                'Not registered?',
+                                style: AppTextStyle.style(
+                                  color: Colors.black.withOpacity(0.8),
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: Responsive.height(9.7, context),
-                    ),
-                  ],
+                        ],
+                      ),
+                      SizedBox(
+                        height: Responsive.height(9.7, context),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             )
