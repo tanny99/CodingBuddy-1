@@ -192,14 +192,15 @@ class _CreateAccountState extends State<CreateAccount> {
                                       onPressed: () {
                                         _isValid = EmailValidator.validate(
                                             EmailController.text);
-                                        if (!(_isValid)) {
-                                          Fluttertoast.showToast(
-                                              msg: 'Enter a Valid Email',
-                                              toastLength: Toast.LENGTH_SHORT,
-                                              gravity: ToastGravity.TOP,
-                                              timeInSecForIosWeb: 1,
-                                              fontSize: 16.0);
-                                        } else if (EmailController
+                                        // if (!(_isValid)) {
+                                        //   Fluttertoast.showToast(
+                                        //       msg: 'Enter a Valid Email',
+                                        //       toastLength: Toast.LENGTH_SHORT,
+                                        //       gravity: ToastGravity.TOP,
+                                        //       timeInSecForIosWeb: 1,
+                                        //       fontSize: 16.0);
+                                        // }
+                                            if (EmailController
                                                 .text.isNotEmpty &&
                                             EnrollmentController
                                                 .text.isNotEmpty &&
