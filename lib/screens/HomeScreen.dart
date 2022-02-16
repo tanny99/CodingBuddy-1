@@ -92,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       fit: StackFit.passthrough,
                       children: [
                         Container(
-                          height: 56,
+                          height: 50,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
                             gradient: LinearGradient(
@@ -122,14 +122,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                     SizedBox(
-                      height: 15,
+                      height: 12,
                     ),
                     Stack(
                       alignment: Alignment.center,
                       fit: StackFit.passthrough,
                       children: [
                         Container(
-                          height: 56,
+                          height: 50,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
                             gradient: LinearGradient(
@@ -159,14 +159,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                     SizedBox(
-                      height: 15,
+                      height: 12,
                     ),
                     Stack(
                       alignment: Alignment.center,
                       fit: StackFit.passthrough,
                       children: [
                         Container(
-                          height: 56,
+                          height: 50,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
                             gradient: LinearGradient(
@@ -196,14 +196,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                     SizedBox(
-                      height: 15,
+                      height: 12,
                     ),
                     Stack(
                       alignment: Alignment.center,
                       fit: StackFit.passthrough,
                       children: [
                         Container(
-                          height: 56,
+                          height: 50,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
                             gradient: LinearGradient(
