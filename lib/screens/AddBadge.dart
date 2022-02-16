@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jiit_hub/responsive_constants.dart';
-
+import 'HomeScreen.dart';
+final int vv=1;
 class AddBadge extends StatefulWidget {
   const AddBadge({Key? key}) : super(key: key);
 
@@ -74,7 +75,8 @@ class _AddBadgeState extends State<AddBadge> {
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: ElevatedButton(onPressed: (){
-                  Navigator.pop(context);
+
+                  Navigator.push(context, MaterialPageRoute(builder: (context){return HomeScreen(vall: 2);}));
                 },child: Text('Submit'),),
               )],
             ),
