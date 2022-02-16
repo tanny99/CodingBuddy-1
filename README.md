@@ -1,5 +1,5 @@
 #Our_app
-# jiit_hub
+# CodingBuddy
 
 A new Flutter application.
 
