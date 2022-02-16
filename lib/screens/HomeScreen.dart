@@ -7,13 +7,52 @@ import 'package:flutter/cupertino.dart';
 import 'package:jiit_hub/styles/app_text_style.dart';
 import 'package:jiit_hub/styles/app_color.dart';
 import 'AddBadge.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+class UserInformation extends StatefulWidget {
+  @override
+  _UserInformationState createState() => _UserInformationState();
+}
 
+class _UserInformationState extends State<UserInformation> {
+  final Stream<QuerySnapshot> _usersStream = FirebaseFirestore.instance.collection('about').snapshots();
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<QuerySnapshot>(
+      stream: _usersStream,
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return Text('Something went wrong');
+        }
+
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Text("Loading");
+        }
+
+        return Column(
+          children: snapshot.data!.docs.map((DocumentSnapshot document) {
+            Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
+            return Container(
+
+              child: Text(data['name'],style: TextStyle(fontSize: 20),),
+            );
+          }).toList(),
+        );
+      },
+    );
+  }
+}
 class HomeScreen extends StatefulWidget {
+  final int vall;
+  const HomeScreen({required this.vall});
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,21 +91,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Row(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 35.0, left: 10.0),
-                          child: Container(
-                            alignment: Alignment.topLeft,
-                            child: CircleAvatar(
-                              radius: 50.0,
-                              backgroundImage: AssetImage(
-                                  "Assets/badge-removebg-preview.png"),
-                              backgroundColor: Colors.transparent,
-                            ),
-                            height: Responsive.height(15, context),
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                            ),
-                          ),
+                        Row (
+                          children:badge_array(widget.vall),
                         ),
                       ],
                     ),
@@ -112,11 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                           child: Center(
-                            child: Text(
-                              'Akanksha Chaudhari',
-                              style: AppTextStyle.style(
-                                  fontSize: 24, fontWeight: FontWeight.w600),
-                            ),
+                            child: UserInformation(),
                           ),
                         ),
                       ],
@@ -291,5 +313,30 @@ class _HomeScreenState extends State<HomeScreen> {
     //   ),
     // ),
     // );
+  }
+}
+List<Widget> badge_array(int kk){
+  List <Widget> gameCells = <Widget>[];
+  for(int i=0;i<kk;i++)
+  {
+    gameCells.add(new circle_badge());
+    print(i);
+  }
+  return gameCells;
+}
+
+class circle_badge extends StatelessWidget {
+  const circle_badge({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return CircleAvatar(
+      radius: 50.0,
+      backgroundImage: AssetImage(
+          "Assets/badge-removebg-preview.png"),
+      backgroundColor: Colors.transparent,
+    );
   }
 }

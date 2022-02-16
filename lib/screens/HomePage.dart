@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   late int selectedIndex = widget.indexx;
   late int selectedPage = widget.indexx;
 
-  final _PageOptions = [HomeScreen(), MyProfile()];
+  final _PageOptions = [HomeScreen(vall: 1,), MyProfile()];
 
   void _onTap(int index) {
     setState(() {
