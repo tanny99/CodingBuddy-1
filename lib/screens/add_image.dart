@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:path/path.dart' as Path;
+
 FirebaseFirestore _firestore = FirebaseFirestore.instance;
 late final User loggedInUser;
 
@@ -33,6 +34,7 @@ class _AddImageState extends State<AddImage> {
       print(e);
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,44 +69,42 @@ class _AddImageState extends State<AddImage> {
                   itemBuilder: (context, index) {
                     return index == 0
                         ? Center(
-                          child: IconButton(
-                            iconSize: 50,
-                            icon: Icon(Icons.note_add_outlined),
-                            onPressed: () =>
-                            !uploading ? chooseImage() : null),
-                        )
+                            child: IconButton(
+                                iconSize: 50,
+                                icon: Icon(Icons.note_add_outlined),
+                                onPressed: () =>
+                                    !uploading ? chooseImage() : null),
+                          )
                         : Container(
-                      margin: EdgeInsets.all(3),
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 2
-                          ),
-                          image: DecorationImage(
-                              image: FileImage(_image[index - 1]),
-                              fit: BoxFit.cover)),
-                    );
+                            margin: EdgeInsets.all(3),
+                            decoration: BoxDecoration(
+                                border: Border.all(width: 2),
+                                image: DecorationImage(
+                                    image: FileImage(_image[index - 1]),
+                                    fit: BoxFit.cover)),
+                          );
                   }),
             ),
             uploading
                 ? Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Container(
-                      child: Text(
-                        'uploading...',
-                        style: TextStyle(fontSize: 20),
+                    child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        child: Text(
+                          'uploading...',
+                          style: TextStyle(fontSize: 20),
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    CircularProgressIndicator(
-                      value: val,
-                      valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
-                    )
-                  ],
-                ))
+                      SizedBox(
+                        height: 10,
+                      ),
+                      CircularProgressIndicator(
+                        value: val,
+                        valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+                      )
+                    ],
+                  ))
                 : Container(),
           ],
         ));
@@ -144,8 +144,10 @@ class _AddImageState extends State<AddImage> {
           .child('images/${Path.basename(img.path)}');
       await ref.putFile(img).whenComplete(() async {
         await ref.getDownloadURL().then((value) {
-          imgRef.add({'url': value,
-            'sender': loggedInUser.email,});
+          imgRef.add({
+            'url': value,
+            'sender': loggedInUser.email,
+          });
           i++;
         });
       });

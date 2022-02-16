@@ -6,7 +6,6 @@ import 'package:jiit_hub/responsive_constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:jiit_hub/styles/app_text_style.dart';
 import 'package:jiit_hub/styles/app_color.dart';
-import 'ChatScreen.dart';
 import 'AddBadge.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -34,20 +33,44 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: MediaQuery.of(context).size.height * 0.4,
                   child: Image.asset("Assets/Vector.png"),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 35.0, left: 10.0),
-                  child: Container(
-                    alignment: Alignment.topLeft,
-                    child: CircleAvatar(
-                      radius: 70.0,
-                      backgroundImage: AssetImage("Assets/student.jpg"),
-                      backgroundColor: Colors.transparent,
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 35.0, left: 10.0),
+                      child: Container(
+                        alignment: Alignment.topLeft,
+                        child: CircleAvatar(
+                          radius: 70.0,
+                          backgroundImage: AssetImage("Assets/student.jpg"),
+                          backgroundColor: Colors.transparent,
+                        ),
+                        height: Responsive.height(15, context),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                      ),
                     ),
-                    height: Responsive.height(15, context),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 35.0, left: 10.0),
+                          child: Container(
+                            alignment: Alignment.topLeft,
+                            child: CircleAvatar(
+                              radius: 50.0,
+                              backgroundImage: AssetImage(
+                                  "Assets/badge-removebg-preview.png"),
+                              backgroundColor: Colors.transparent,
+                            ),
+                            height: Responsive.height(15, context),
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
+                  ],
                 ),
               ],
             ),

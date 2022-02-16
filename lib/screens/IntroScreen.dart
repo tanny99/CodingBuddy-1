@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'Choices.dart';
 import 'LoginPage.dart';
 import 'package:jiit_hub/styles/app_text_style.dart';
 import 'package:jiit_hub/styles/app_color.dart';

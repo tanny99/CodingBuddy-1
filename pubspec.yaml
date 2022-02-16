@@ -82,9 +82,7 @@ flutter:
   uses-material-design: true
   assets:
     - Assets/
-    - Assets/jiit_logo.jpg
-    - Assets/jiit_logo-removebg-preview.png
-    - Assets/new.jpg
+
 #    - Assets/Ujjwal.jpg
   fonts:
     - family: SourceSansPro

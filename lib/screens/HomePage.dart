@@ -5,8 +5,6 @@ import '../Constants.dart' as K;
 import 'HomeScreen.dart';
 import 'AddRepository.dart';
 import 'package:jiit_hub/screens/Methods.dart';
-import 'add_image.dart';
-import 'MyProfilePage.dart';
 
 class HomePage extends StatefulWidget {
   final int indexx;
