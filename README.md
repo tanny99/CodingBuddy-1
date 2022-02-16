@@ -1,5 +1,4 @@
 #Our_app
-# CodingBuddy
 
 A new Flutter application.
 
